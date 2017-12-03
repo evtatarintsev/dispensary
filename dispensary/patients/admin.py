@@ -5,4 +5,8 @@ from .models import Patient
 
 @admin.register(Patient)
 class PatientAdmin(admin.ModelAdmin):
-    search_fields = ('full_name', )
+    list_display = ('full_name', 'sport', 'sports_school', 'rank', 'training_stage', 'birthday')
+    search_fields = ('full_name', 'sports_school__name')
+
+    def get_queryset(self, request):
+        return super(PatientAdmin, self).get_queryset(request).select_related()
