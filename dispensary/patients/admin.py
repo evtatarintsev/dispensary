@@ -5,7 +5,7 @@ from .models import Patient
 
 @admin.register(Patient)
 class PatientAdmin(admin.ModelAdmin):
-    list_display = ('full_name', 'sport', 'sports_school', 'rank', 'training_stage', 'birthday')
+    list_display = ('full_name', 'sport', 'sports_school', 'rank', 'training_stage', 'birthday_str')
     search_fields = ('full_name', 'sports_school__name')
 
     def get_queryset(self, request):
