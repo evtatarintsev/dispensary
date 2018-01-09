@@ -21,36 +21,37 @@ fieldnames = [
     'rank',
     'fio',
     'bd',
-    'sex',
     'address',
     'phone',
-
     'coach',
-    'edu',
-    'zilishe',
-    'eda',
-    'sport',
-    'training_from',
-    'other_sports',
-    'tournir',
+    'sex',
     'umo',
     'umo_dopusk',
     'emo',
     'emo_dopusk',
-    'work',
-    'profession',
 
-    'policlinika',
-    'alcohol',
-    'smoking',
-    'bolesni',
-    'travmy',
-    'operation',
-    'a1',
-    'a2',
-    'a3',
-    'a4',
-    'a5',
+    # 'edu',
+    # 'zilishe',
+    # 'eda',
+    # 'sport',
+    # 'training_from',
+    # 'other_sports',
+    # 'tournir',
+    #
+    # 'work',
+    # 'profession',
+    #
+    # 'policlinika',
+    # 'alcohol',
+    # 'smoking',
+    # 'bolesni',
+    # 'travmy',
+    # 'operation',
+    # 'a1',
+    # 'a2',
+    # 'a3',
+    # 'a4',
+    # 'a5',
 ]
 
 
@@ -59,6 +60,15 @@ class Command(BaseCommand):
         parser.add_argument('filename', type=str)
 
     def handle(self, *args, **options):
+        Patient.objects.all().delete()
+        SportsSchool.objects.all().delete()
+        Coach.objects.all().delete()
+        Rank.objects.all().delete()
+        TrainingStage.objects.all().delete()
+        Housing.objects.all().delete()
+        FoodRegime.objects.all().delete()
+        Sport.objects.all().delete()
+
         fname = options['filename']
         content = open(fname, encoding='cp1251')
         dialect = csv.excel
@@ -72,9 +82,9 @@ class Command(BaseCommand):
             coach, _ = Coach.objects.get_or_create(full_name=row['coach'])
             rank, _ = Rank.objects.get_or_create(name=row['rank'])
             training_stage, _ = TrainingStage.objects.get_or_create(name=row['podg'])
-            sport, _ = Sport.objects.get_or_create(name=row['sport'])
-            housing, _ = Housing.objects.get_or_create(name=row['zilishe'])
-            food_regime, _ = FoodRegime.objects.get_or_create(name=row['eda'])
+            sport, _ = Sport.objects.get_or_create(name=row['sport'].capitalize())
+            # housing, _ = Housing.objects.get_or_create(name=row['zilishe'])
+            # food_regime, _ = FoodRegime.objects.get_or_create(name=row['eda'])
 
             umo_comment = None
             umo = None
@@ -103,24 +113,24 @@ class Command(BaseCommand):
                 sex=1 if row['sex'] == 'женский' else 0,
                 address=row['address'],
                 phone_no=row['phone'],
-                education=row['edu'],
-                housing=housing,
-                food_regime=food_regime,
-                training_from_year=row['training_from'],
+                # education=row['edu'],
+                # housing=housing,
+                # food_regime=food_regime,
+                # training_from_year=row['training_from'],
                 umo=umo,
                 umo_comment=umo_comment,
                 umo_limit=row['umo_dopusk'],
                 emo=emo,
                 emo_comment=emo_comment,
                 emo_limit=row['emo_dopusk'],
-                work=row['work'],
-                profession=row['profession'],
-                polyclinic=row['policlinika'],
-                alcohol=row['alcohol'],
-                smoking=row['smoking'],
-                disease=row['bolesni'],
-                injuries=row['travmy'],
-                operations=row['operation'],
+                # work=row['work'],
+                # profession=row['profession'],
+                # polyclinic=row['policlinika'],
+                # alcohol=row['alcohol'],
+                # smoking=row['smoking'],
+                # disease=row['bolesni'],
+                # injuries=row['travmy'],
+                # operations=row['operation'],
             )
 
             p.coaches.add(coach)

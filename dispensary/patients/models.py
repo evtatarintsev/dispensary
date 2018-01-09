@@ -29,7 +29,8 @@ class Patient(models.Model):
                              null=True, blank=True, on_delete=models.SET_NULL)
     full_name = models.CharField('ФИО', max_length=150, db_index=True)
     birthday = models.DateField('Дата рождения', null=True, blank=True)
-    birthday_str = models.CharField('Дата рождения, строкой', max_length=100, null=True, blank=True)
+    birthday_str = models.CharField('Дата рождения, строкой', max_length=100, null=True, blank=True,
+                                    help_text='не нужно заполнять')
     sex = models.PositiveIntegerField('Пол', choices=SEX_CHOICES, default=MALE)
     address = models.CharField('Адрес', max_length=255, null=True, blank=True)
     phone_no = models.CharField('Телефон', max_length=50, null=True, blank=True)
