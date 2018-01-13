@@ -4,14 +4,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 INSTALLED_APPS = [
-    # 'material',
-    # 'material.admin',
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'salmonella',
 
     'dispensary.patients',
     'dispensary.reference_books',
@@ -78,5 +79,7 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
+
+GRAPPELLI_ADMIN_TITLE = 'Кировский спортивный диспансер'
 
 from .local_settings import *

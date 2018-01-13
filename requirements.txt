@@ -1,2 +1,4 @@
 django==1.11.6
 mysqlclient==1.3.12
+django-salmonella==1.1
+django-grappelli==2.10.1

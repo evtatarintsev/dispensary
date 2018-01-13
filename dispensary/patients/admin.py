@@ -1,14 +1,26 @@
 from django.contrib import admin
+from salmonella.admin import SalmonellaMixin
 
 from .models import Patient
 
 
 @admin.register(Patient)
-class PatientAdmin(admin.ModelAdmin):
-    list_display = ('full_name', 'sport', 'sports_school', 'rank', 'training_stage', 'birthday_str')
-    search_fields = ('full_name', 'sports_school__name')
-    filter_horizontal = ('coaches', 'other_sports', 'tournament_sports')
-    list_filter = ('rank', )
+class PatientAdmin(SalmonellaMixin, admin.ModelAdmin):
+    # change_list_template = "admin/change_list_filter_sidebar.html"
+    list_display = ('full_name', 'sport', 'sports_school', 'umo', 'umo_limit', 'emo', 'emo_limit',)
 
-    def get_queryset(self, request):
-        return super(PatientAdmin, self).get_queryset(request).select_related()
+    search_fields = ('full_name', 'sports_school__name')
+    salmonella_fields = ('coaches',)
+    list_filter = ('sports_school', 'sport', 'rank', )
+    readonly_fields = ('umo_comment', 'emo_comment',)
+    fieldsets = (
+        ('Общая информация', ({'fields': (
+            'full_name', 'sex', 'birthday', 'address', 'phone_no',
+        )}),),
+        ('Спортивная информация', ({'fields': (
+            'sports_school', 'sport', 'coaches', 'rank', 'training_from_year', 'training_stage',
+        )}),),
+        ('Допуски', ({'fields': (
+            ('umo', 'umo_comment'), 'umo_limit', ('emo', 'emo_comment'), 'emo_limit',
+        )}),),
+    )
