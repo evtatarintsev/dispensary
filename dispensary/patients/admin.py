@@ -17,7 +17,7 @@ class PatientAdmin(SalmonellaMixin, admin.ModelAdmin):
         ('Общая информация', ({'fields': (
             'full_name', 'sex', 'birthday', 'address', 'phone_no',
         ),
-        'classes': ('grp-collapse grp-closed',)}),),
+        }),),
         ('Спортивная информация', ({'fields': (
             'sports_school', 'sport', 'coaches', 'rank', 'training_from_year', 'training_stage',
         )}),),
