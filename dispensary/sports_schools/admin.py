@@ -6,7 +6,8 @@ from .models import SportsSchool
 
 @admin.register(SportsSchool)
 class SportsSchoolAdmin(admin.ModelAdmin):
-    pass
+    search_fields = ('name', 'city__name', 'phone_no')
+    list_filter = ('city', )
 
 
 @admin.register(Coach)
