@@ -11,4 +11,5 @@ class SportsSchoolAdmin(admin.ModelAdmin):
 
 @admin.register(Coach)
 class CoachAdmin(admin.ModelAdmin):
-    pass
+    search_fields = ('full_name', 'phone_no', 'sports_school__name')
+    list_filter = ('sex', 'sports_school')
