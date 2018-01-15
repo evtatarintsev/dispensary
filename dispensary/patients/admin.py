@@ -7,7 +7,7 @@ from .models import Patient
 @admin.register(Patient)
 class PatientAdmin(SalmonellaMixin, admin.ModelAdmin):
     # change_list_template = "admin/change_list_filter_sidebar.html"
-    list_display = ('full_name', 'sport', 'sports_school', 'umo', 'umo_limit', 'emo', 'emo_limit',)
+    list_display = ('full_name', 'birthday', 'sport', 'sports_school', 'umo', 'umo_limit', 'emo', 'emo_limit',)
 
     search_fields = ('full_name', 'sports_school__name')
     salmonella_fields = ('coaches',)
