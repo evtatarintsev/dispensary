@@ -7,11 +7,12 @@ from .models import Patient
 @admin.register(Patient)
 class PatientAdmin(SalmonellaMixin, admin.ModelAdmin):
     change_list_template = "admin/change_list_filter_sidebar.html"
-    list_display = ('full_name', 'birthday_short', 'sport', 'team_member', 'sports_school', 'umo', 'umo_limit', 'emo', 'emo_limit',)
+    list_display = ('full_name', 'birthday_short', 'sport', 'team_member',
+                    'sports_school', 'umo_display', 'emo_display',)
     list_editable = ('team_member', )
     search_fields = ('full_name', 'sports_school__name')
     salmonella_fields = ('coaches',)
-    list_filter = ('sports_school', 'sport', 'rank', 'team_member', 'coaches')
+    list_filter = ('sports_school', 'sport', 'coaches', 'rank', 'team_member', )
     readonly_fields = ('umo_comment', 'emo_comment',)
     fieldsets = (
         ('Общая информация', ({'fields': (
@@ -30,3 +31,25 @@ class PatientAdmin(SalmonellaMixin, admin.ModelAdmin):
         return obj.birthday.strftime('%d.%m.%Y') if obj.birthday else None
     birthday_short.short_description = 'Д/Р'
     birthday_short.admin_order_field = 'birthday'
+
+    def emo_display(self, obj):
+        emo_date_str = obj.emo.strftime('%d.%m.%Y') if obj.emo else ''
+
+        data = f'<strong>{emo_date_str}</strong><br>' \
+               f'{obj.emo_limit}'
+        return data
+
+    emo_display.short_description = 'ЭМО'
+    emo_display.admin_order_field = 'emo'
+    emo_display.allow_tags = True
+
+    def umo_display(self, obj):
+        umo_date_str = obj.umo.strftime('%d.%m.%Y') if obj.umo else ''
+        umo_limit = obj.umo_limit or 'не указан'
+        data = f'<strong>{umo_date_str}</strong><br>' \
+               f'Допуск: {umo_limit}'
+        return data
+
+    umo_display.short_description = 'УМО'
+    umo_display.admin_order_field = 'umo'
+    umo_display.allow_tags = True
