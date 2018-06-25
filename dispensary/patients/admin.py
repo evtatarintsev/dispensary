@@ -34,9 +34,7 @@ class PatientAdmin(SalmonellaMixin, admin.ModelAdmin):
 
     def emo_display(self, obj):
         emo_date_str = obj.emo.strftime('%d.%m.%Y') if obj.emo else ''
-
-        data = f'<strong>{emo_date_str}</strong><br>' \
-               f'{obj.emo_limit}'
+        data = '<strong>%s</strong><br>%s' % (emo_date_str, obj.emo_limit or '')
         return data
 
     emo_display.short_description = 'ЭМО'
@@ -46,8 +44,7 @@ class PatientAdmin(SalmonellaMixin, admin.ModelAdmin):
     def umo_display(self, obj):
         umo_date_str = obj.umo.strftime('%d.%m.%Y') if obj.umo else ''
         umo_limit = obj.umo_limit or 'не указан'
-        data = f'<strong>{umo_date_str}</strong><br>' \
-               f'Допуск: {umo_limit}'
+        data = '<strong>%s</strong><br>Допуск: %s' % (umo_date_str, umo_limit)
         return data
 
     umo_display.short_description = 'УМО'
