@@ -40,7 +40,7 @@ class Patient(models.Model):
     phone_no = models.CharField('Телефон', max_length=50, null=True, blank=True)
     coaches = models.ManyToManyField(Coach, verbose_name='Тренера', blank=True)
     training_from_year = models.CharField('С какого года тренируется', max_length=20,
-                                          null=True, blank=True, choices=YEARS)
+                                          null=True, blank=True)
 
     umo = models.DateField('Дата УМО', null=True, blank=True)
     umo_comment = models.CharField('Комментарий УМО', max_length=255, null=True, blank=True)
@@ -50,25 +50,8 @@ class Patient(models.Model):
     emo_comment = models.CharField('Комментарий ЭМО', max_length=255, null=True, blank=True)
     emo_limit = models.TextField('Допуск ЭМО', max_length=255, null=True, blank=True)
 
-    # other_sports = models.ManyToManyField(Sport, verbose_name='Другие виды спорта', related_name='+', blank=True,
-    #                                       help_text='Какими другими видами спорта занимался')
-    # tournament_sports = models.ManyToManyField(Sport, verbose_name='Соревнования', blank=True,
-    #                                            help_text='По каким видам спорта участвовал в соревнованиях')
-    # education = models.CharField('Образование', max_length=150, null=True, blank=True)
-    # housing = models.ForeignKey(Housing, verbose_name='Жилищные условия',
-    #                             null=True, blank=True, on_delete=models.SET_NULL)
-    # food_regime = models.ForeignKey(FoodRegime, verbose_name='Пищевой режим',
-    #                                 null=True, blank=True, on_delete=models.SET_NULL)
-
-    # work = models.CharField('Место работы', max_length=255, null=True, blank=True)
-    # profession = models.CharField('Профессия', max_length=255, null=True, blank=True)
-    # polyclinic = models.CharField('Поликлиника по месту жительства', max_length=255, null=True, blank=True)
-    # alcohol = models.CharField('Употребление алкоголя', max_length=255, choices=ALCOHOL, null=True, blank=True)
-    # smoking = models.CharField('Курение', max_length=255, null=True, blank=True)
-
-    # disease = models.CharField('Болезни', max_length=255, null=True, blank=True)
-    # injuries = models.CharField('Травмы', max_length=255, null=True, blank=True)
-    # operations = models.CharField('Болезни', max_length=255, null=True, blank=True)
+    team_member = models.BooleanField('Член сборной', default=False)
+    recommendations = models.TextField('Рекомендации', null=True, blank=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
