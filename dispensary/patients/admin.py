@@ -8,7 +8,7 @@ from .models import Patient
 class PatientAdmin(SalmonellaMixin, admin.ModelAdmin):
     change_list_template = "admin/change_list_filter_sidebar.html"
     list_display = ('full_name', 'birthday_short', 'sport', 'team_member',
-                    'sports_school', 'umo_display', 'emo_display',)
+                    'sports_school', 'umo_display', 'emo_display', 'recommendations')
     list_editable = ('team_member', )
     search_fields = ('full_name', 'sports_school__name')
     salmonella_fields = ('coaches',)
