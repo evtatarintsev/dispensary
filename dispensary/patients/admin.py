@@ -1,6 +1,7 @@
 from django.contrib import admin
 from salmonella.admin import SalmonellaMixin
-
+from django.shortcuts import render
+from django.conf.urls import url
 from .models import Patient
 
 
@@ -50,3 +51,16 @@ class PatientAdmin(SalmonellaMixin, admin.ModelAdmin):
     umo_display.short_description = 'УМО'
     umo_display.admin_order_field = 'umo'
     umo_display.allow_tags = True
+
+    def get_urls(self):
+        urls = [
+            url(r'^blood/(?P<pk>\d+)/$', self.admin_site.admin_view(self.print_blood), name='blood'),
+            url(r'^urine/(?P<pk>\d+)/$', self.admin_site.admin_view(self.print_urine), name='urine'),
+        ] + super(PatientAdmin, self).get_urls()
+        return urls
+
+    def print_blood(self, request, pk):
+        return render(request, 'admin/patients/patient/blood.html', {'obj': Patient.objects.get(pk=pk)})
+
+    def print_urine(self, request, pk):
+        return render(request, 'admin/patients/patient/urine.html', {'obj': Patient.objects.get(pk=pk)})

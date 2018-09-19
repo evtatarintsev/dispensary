@@ -1,0 +1,83 @@
+.direction {
+    margin-bottom: 1cm;
+    margin-top: 2cm;
+}
+@page {
+  size: auto;
+  margin: 0 1cm;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.bordered td {
+    border: 1px solid #000;
+}
+
+table td {
+    padding: 5px;
+}
+
+.space-border {
+    border: 1px solid #000;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.header-table {
+    margin-bottom: 1cm;
+}
+
+.header-table td {
+    width: 33%;
+}
+
+.data-table {
+    margin-bottom: 1cm;
+}
+
+.data-field {
+    padding-right: 15px;
+    white-space: nowrap;
+    font-weight: 700;
+}
+
+.data-value {
+    width: 100%;
+    border-bottom: 1px solid #000;
+}
+
+.checkbox {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.checkbox__icon {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #000;
+}
+
+.checkbox__label {
+    margin-left: 5px;
+}
+
+.checkbox.checked .checkbox__icon::after {
+    position: absolute;
+    content: '^';
+    transform: rotate(180deg);
+    top: -4px;
+    left: 4px;
+}

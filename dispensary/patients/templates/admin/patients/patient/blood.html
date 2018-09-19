@@ -1,0 +1,119 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="{% static "print/css/styles.css" %}">
+
+    <title>Направление на анализ крови - {{ obj.full_name }}</title>
+</head>
+<body>
+
+    <div class="direction">
+
+        <table class="header-table">
+            <tbody>
+            <tr>
+                <td class="space-border text-center">
+                    место для штрих-кода
+                </td>
+                <td>
+                    <h4 class="text-center text-uppercase">Направление</h4>
+                </td>
+                <td class="space-border text-center">
+                    ООО "ЦКДЛ" Централизованная клинико-диагностическая лаборатория
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table class="data-table">
+            <tbody>
+            <tr>
+                <td class="data-field">Фамилия</td>
+                <td class="data-value">{{ obj.last_name }}</td>
+            </tr>
+            <tr>
+                <td class="data-field">Имя</td>
+                <td class="data-value">{{ obj.first_name }}</td>
+            </tr>
+            <tr>
+                <td class="data-field">Отчество</td>
+                <td class="data-value">{{ obj.middle_name }}</td>
+            </tr>
+            <tr>
+                <td class="data-field">Дата рождения</td>
+                <td class="data-value">{{ obj.birthday|date:"d.m.Y" }}</td>
+            </tr>
+            <tr>
+                <td class="data-field">Отделение</td>
+                <td class="data-value"></td>
+            </tr>
+        </table>
+
+        <table class="bordered">
+            <tbody>
+            <tr>
+                <td>
+                    <span class="checkbox">
+                        <span class="checkbox__icon"></span>
+                    </span>
+                </td>
+                <td colspan="2"><strong>Гематологические исследования</strong></td>
+                <td>
+                    <span class="checkbox">
+                        <span class="checkbox__icon"></span>
+                    </span>
+                </td>
+                <td colspan="2"><strong>Биохимические исследования</strong></td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="checkbox">
+                        <span class="checkbox__icon"></span>
+                    </span>
+                </td>
+                <td>Общий клинический анализ крови (CBC + Diff формула крови, без СОЭ)</td>
+                <td>1932</td>
+                <td>
+                    <span class="checkbox">
+                        <span class="checkbox__icon"></span>
+                    </span>
+                </td>
+                <td>Аланинаминотрансфераза (АЛТ)</td>
+                <td>701</td>
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    <span class="checkbox">
+                        <span class="checkbox__icon"></span>
+                    </span>
+                </td>
+                <td rowspan="2">СОЭ (скросость оседания эритроцитов)</td>
+                <td rowspan="2">1069</td>
+                <td>
+                    <span class="checkbox">
+                        <span class="checkbox__icon"></span>
+                    </span>
+                </td>
+                <td>Аспартатаминотрансфераза (АСТ)</td>
+                <td>702</td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="checkbox">
+                        <span class="checkbox__icon"></span>
+                    </span>
+                </td>
+                <td>Билирубин общий</td>
+                <td>709</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+</html>

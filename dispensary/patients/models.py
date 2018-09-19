@@ -68,3 +68,23 @@ class Patient(models.Model):
         if self.birthday:
             self.birthday_str = None
         return super(Patient, self).save(**kwargs)
+
+    @property
+    def last_name(self):
+        return self.split_fio()[0]
+
+    @property
+    def first_name(self):
+        return self.split_fio()[1]
+
+    @property
+    def middle_name(self):
+        return self.split_fio()[2]
+
+    def split_fio(self):
+        fio = self.full_name.split()
+        if len(fio) > 2:
+            return fio
+        elif len(fio) > 1:
+            return fio + ['']
+        return fio + ['', '']
