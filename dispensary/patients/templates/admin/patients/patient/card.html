@@ -1,0 +1,90 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="{% static "print/css/styles.css" %}">
+
+    <title>Карта пациента - {{ obj.full_name }}</title>
+</head>
+<body>
+
+    <div class="direction">
+
+        <table class="header-table">
+            <tbody>
+            <tr>
+                <td class="space-border text-center">
+                    место для штрих-кода
+                </td>
+                <td>
+                    <h4 class="text-center text-uppercase">Карта пациента</h4>
+                </td>
+                <td class="space-border text-center">
+                    ООО "ЦКДЛ" Централизованная клинико-диагностическая лаборатория
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table class="data-table">
+            <tbody>
+            <tr>
+                <td class="data-field">ФИО</td>
+                <td class="data-value">{{ obj.full_name }}, {{ obj.birthday|date:"d.m.Y" }} г.р.</td>
+            </tr>
+            <tr>
+                <td class="data-field">Адрес</td>
+                <td class="data-value">{{ obj.address }}</td>
+            </tr>
+            <tr>
+                <td class="data-field">Телефон</td>
+                <td class="data-value">{{ obj.phone_no }}</td>
+            </tr>
+            <tr>
+                <td class="data-field">Организация</td>
+                <td class="data-value">{{ obj.sports_school }}</td>
+            </tr>
+            <tr>
+                <td class="data-field">Отделение</td>
+                <td class="data-value">{{ obj.sport }}{% if obj.team_member %}, член сборной{% endif %}</td>
+            </tr>
+            <tr>
+                <td class="data-field">Разряд</td>
+                <td class="data-value">{{ obj.rank|default:"нет" }}</td>
+            </tr>
+            <tr>
+                <td class="data-field">Стаж занятий</td>
+                <td class="data-value">{% if obj.training_from_year %}с {{ obj.training_from_year }} г.{% endif %}</td>
+            </tr>
+            <tr>
+                <td class="data-field">Этап подготовки</td>
+                <td class="data-value">{{ obj.training_stage }}</td>
+            </tr>
+        </table>
+
+        <table class="bordered">
+            <tbody>
+            <tr>
+                <td width="50%"><strong>УМО</strong></td>
+                <td><strong>ЭМО</strong></td>
+            </tr>
+            <tr>
+                <td>{{ obj.umo }}</td>
+                <td>{{ obj.emo|default:"---" }}</td>
+            </tr>
+            <tr>
+
+                <td>{{ obj.umo_limit }}</td>
+                <td>{{ obj.emo_limit }}</td>
+            </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+</html>

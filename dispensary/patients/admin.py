@@ -54,13 +54,13 @@ class PatientAdmin(SalmonellaMixin, admin.ModelAdmin):
 
     def get_urls(self):
         urls = [
-            url(r'^blood/(?P<pk>\d+)/$', self.admin_site.admin_view(self.print_blood), name='blood'),
-            url(r'^urine/(?P<pk>\d+)/$', self.admin_site.admin_view(self.print_urine), name='urine'),
+            url(r'^analyze/(?P<pk>\d+)/$', self.admin_site.admin_view(self.print_analyze), name='analyze'),
+            url(r'^card/(?P<pk>\d+)/$', self.admin_site.admin_view(self.print_card), name='card'),
         ] + super(PatientAdmin, self).get_urls()
         return urls
 
-    def print_blood(self, request, pk):
-        return render(request, 'admin/patients/patient/blood.html', {'obj': Patient.objects.get(pk=pk)})
+    def print_analyze(self, request, pk):
+        return render(request, 'admin/patients/patient/analyze.html', {'obj': Patient.objects.get(pk=pk)})
 
-    def print_urine(self, request, pk):
-        return render(request, 'admin/patients/patient/urine.html', {'obj': Patient.objects.get(pk=pk)})
+    def print_card(self, request, pk):
+        return render(request, 'admin/patients/patient/card.html', {'obj': Patient.objects.get(pk=pk)})

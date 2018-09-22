@@ -49,7 +49,7 @@
             </tr>
             <tr>
                 <td class="data-field">Отделение</td>
-                <td class="data-value"></td>
+                <td class="data-value">{{ obj.sport }}</td>
             </tr>
         </table>
 
@@ -114,6 +114,75 @@
         </table>
 
     </div>
+    <div class="direction">
 
+        <table class="header-table">
+            <tbody>
+            <tr>
+                <td class="space-border text-center">
+                    место для штрих-кода
+                </td>
+                <td class="text-center">
+                    <h4>
+                        <span class="text-uppercase">Направление</span><br>
+                        <span>на клинические лабораторные исследования</span>
+                    </h4>
+                </td>
+                <td class="space-border text-center">
+                    КОГБУЗ &laquo;Кировский клинико-диагностический центр&raquo;
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table class="data-table">
+            <tbody>
+            <tr>
+                <td class="data-field">Фамилия</td>
+                <td class="data-value">{{ obj.last_name }}</td>
+            </tr>
+            <tr>
+                <td class="data-field">Имя</td>
+                <td class="data-value">{{ obj.first_name }}</td>
+            </tr>
+            <tr>
+                <td class="data-field">Отчество</td>
+                <td class="data-value">{{ obj.middle_name }}</td>
+            </tr>
+            <tr>
+                <td class="data-field">Дата рождения</td>
+                <td class="data-value">{{ obj.birthday|date:"d.m.Y" }}</td>
+            </tr>
+            <tr>
+                <td class="data-field">Отделение</td>
+                <td class="data-value">{{ obj.sport }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered">
+            <tbody>
+            <tr>
+                <td>
+                    <span class="checkbox">
+                        <span class="checkbox__icon"></span>
+                    </span>
+                </td>
+                <td>код</td>
+                <td>исследование</td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="checkbox checked">
+                        <span class="checkbox__icon"></span>
+                    </span>
+                </td>
+                <td>1916</td>
+                <td>Общий анализ мочи</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
 </body>
 </html>
