@@ -72,7 +72,7 @@
                 <td><strong>ЭМО</strong></td>
             </tr>
             <tr>
-                <td>{{ obj.umo }}</td>
+                <td>{{ obj.umo|default:"---" }}</td>
                 <td>{{ obj.emo|default:"---" }}</td>
             </tr>
             <tr>
@@ -83,7 +83,15 @@
 
             </tbody>
         </table>
-
+        <br>
+        <table class="data-table">
+            <tbody>
+            <tr>
+                <td class="data-field">Рекомендации</td>
+                <td class="data-value">{{ obj.recommendations|default:"---" }}</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 
 </body>

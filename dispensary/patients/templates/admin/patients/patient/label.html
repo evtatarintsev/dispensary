@@ -1,0 +1,30 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="{% static "print/css/label.css" %}">
+
+    <title>Врачебно-контрольная карта - {{ obj.full_name }}</title>
+</head>
+<body>
+    <table>
+        <tbody>
+        <tr>
+            <td class="text-center">
+                <h1 class="text-uppercase">Врачебно-контрольная карта</h1>
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center">
+                <h2>физкультурника и спортсмена</h2>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</body>
+</html>

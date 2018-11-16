@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
     <link rel="stylesheet" href="{% static "print/css/styles.css" %}">
 
-    <title>Направление на анализ крови - {{ obj.full_name }}</title>
+    <title>Направление на анализы - {{ obj.full_name }}</title>
 </head>
 <body>
-
+    {#  Анализ крови  #}
     <div class="direction">
 
         <table class="header-table">
@@ -114,8 +114,8 @@
         </table>
 
     </div>
+    {#  Анализ мочи  #}
     <div class="direction">
-
         <table class="header-table">
             <tbody>
             <tr>
@@ -182,7 +182,6 @@
             </tr>
             </tbody>
         </table>
-
     </div>
 </body>
 </html>

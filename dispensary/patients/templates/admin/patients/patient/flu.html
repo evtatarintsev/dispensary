@@ -1,0 +1,61 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="{% static "print/css/styles.css" %}">
+
+    <title>Талон на флюорографию - {{ obj.full_name }}</title>
+</head>
+<body>
+    {#  Флюорография  #}
+    <div class="direction flu">
+        <table class="header-table">
+            <tbody>
+            <tr>
+                <td class="text-center">
+                    <h4>
+                        <span class="text-uppercase">Талон на флюорографию</span><br>
+
+                    </h4>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table class="data-table">
+            <tbody>
+            <tr>
+                <td class="data-field">Участок №</td>
+                <td class="data-value">8:00-13:00</td>
+            </tr>
+            <tr>
+                <td class="data-field">Фамилия</td>
+                <td class="data-value">{{ obj.last_name }}</td>
+            </tr>
+            <tr>
+                <td class="data-field">Имя</td>
+                <td class="data-value">{{ obj.first_name }}</td>
+            </tr>
+            <tr>
+                <td class="data-field">Отчество</td>
+                <td class="data-value">{{ obj.middle_name }}</td>
+            </tr>
+            <tr>
+                <td class="data-field">Год рождения</td>
+                <td class="data-value">{{ obj.birthday|date:"Y" }}</td>
+            </tr>
+            <tr>
+                <td class="data-field">Отделение</td>
+                <td class="data-value">{{ obj.sport }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+    </div>
+</body>
+</html>

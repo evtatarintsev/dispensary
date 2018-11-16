@@ -56,6 +56,8 @@ class PatientAdmin(SalmonellaMixin, admin.ModelAdmin):
         urls = [
             url(r'^analyze/(?P<pk>\d+)/$', self.admin_site.admin_view(self.print_analyze), name='analyze'),
             url(r'^card/(?P<pk>\d+)/$', self.admin_site.admin_view(self.print_card), name='card'),
+            url(r'^flu/(?P<pk>\d+)/$', self.admin_site.admin_view(self.print_flu), name='flu'),
+            url(r'^label/(?P<pk>\d+)/$', self.admin_site.admin_view(self.print_label), name='label'),
         ] + super(PatientAdmin, self).get_urls()
         return urls
 
@@ -64,3 +66,9 @@ class PatientAdmin(SalmonellaMixin, admin.ModelAdmin):
 
     def print_card(self, request, pk):
         return render(request, 'admin/patients/patient/card.html', {'obj': Patient.objects.get(pk=pk)})
+
+    def print_flu(self, request, pk):
+        return render(request, 'admin/patients/patient/flu.html', {'obj': Patient.objects.get(pk=pk)})
+
+    def print_label(self, request, pk):
+        return render(request, 'admin/patients/patient/label.html', {'obj': Patient.objects.get(pk=pk)})

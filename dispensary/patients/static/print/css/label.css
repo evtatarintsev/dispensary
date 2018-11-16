@@ -8,18 +8,10 @@
 }
 
 @page {
-  size: auto;
+  size: A5;
   margin: 0 1cm;
 }
 
-.flu {
-    width: 13cm;
-    margin-top: 1cm;
-}
-
-.flu .header-table {
-    margin-bottom: 0;
-}
 table {
     width: 100%;
     border-collapse: collapse;
