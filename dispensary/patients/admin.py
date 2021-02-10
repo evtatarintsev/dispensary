@@ -8,16 +8,16 @@ from .models import Patient
 @admin.register(Patient)
 class PatientAdmin(SalmonellaMixin, admin.ModelAdmin):
     change_list_template = "admin/change_list_filter_sidebar.html"
-    list_display = ('full_name', 'birthday_short', 'sport', 'team_member',
+    list_display = ('pk', 'full_name', 'birthday_short', 'sport', 'team_member',
                     'sports_school', 'umo_display', 'emo_display', 'recommendations')
     list_editable = ('team_member', )
-    search_fields = ('full_name', 'sports_school__name')
+    search_fields = ('pk', 'full_name', 'sports_school__name')
     salmonella_fields = ('coaches',)
     list_filter = ('sports_school', 'sport', 'coaches', 'rank', 'team_member', )
-    readonly_fields = ('umo_comment', 'emo_comment',)
+    readonly_fields = ('pk', 'umo_comment', 'emo_comment',)
     fieldsets = (
         ('Общая информация', ({'fields': (
-            'full_name', 'sex', 'birthday', 'address', 'phone_no',
+            'pk', 'full_name', 'sex', 'birthday', 'address', 'phone_no',
         ),
         }),),
         ('Спортивная информация', ({'fields': (
