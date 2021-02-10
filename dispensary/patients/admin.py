@@ -11,6 +11,7 @@ class PatientAdmin(SalmonellaMixin, admin.ModelAdmin):
     list_display = ('unique_number', 'full_name', 'birthday_short', 'sport', 'team_member',
                     'sports_school', 'umo_display', 'emo_display', 'recommendations')
     list_editable = ('team_member', )
+    list_display_links = ('full_name', )
     search_fields = ('pk', 'full_name', 'sports_school__name')
     salmonella_fields = ('coaches',)
     list_filter = ('sports_school', 'sport', 'coaches', 'rank', 'team_member', )
