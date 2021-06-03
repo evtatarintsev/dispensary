@@ -9,7 +9,8 @@
 
     <title>Направление на анализы - {{ obj.full_name }}</title>
 </head>
-<body>
+{% with check='<span class="checkbox"><span class="checkbox__icon"></span></span>' %}
+    <body>
     {#  Анализ крови  #}
     <div class="direction">
 
@@ -56,59 +57,137 @@
         <table class="bordered">
             <tbody>
             <tr>
-                <td>
-                    <span class="checkbox">
-                        <span class="checkbox__icon"></span>
-                    </span>
-                </td>
-                <td colspan="2"><strong>Гематологические исследования</strong></td>
-                <td>
-                    <span class="checkbox">
-                        <span class="checkbox__icon"></span>
-                    </span>
-                </td>
-                <td colspan="2"><strong>Биохимические исследования</strong></td>
+                <td colspan="3"><strong>Гематологические исследования</strong></td>
+                <td colspan="3"><strong>Биохимические тесты</strong></td>
+                <td colspan="3"><strong>Биохимические тесты</strong></td>
             </tr>
             <tr>
-                <td>
-                    <span class="checkbox">
-                        <span class="checkbox__icon"></span>
-                    </span>
-                </td>
+                <td>{{ check }}</td>
                 <td>Общий клинический анализ крови (CBC + Diff формула крови, без СОЭ)</td>
                 <td>1932</td>
-                <td>
-                    <span class="checkbox">
-                        <span class="checkbox__icon"></span>
-                    </span>
-                </td>
+
+                <td>{{ check }}</td>
                 <td>Аланинаминотрансфераза (АЛТ)</td>
                 <td>701</td>
+
+                <td>{{ check }}</td>
+                <td>Глюкоза</td>
+                <td>714</td>
             </tr>
             <tr>
-                <td rowspan="2">
-                    <span class="checkbox">
-                        <span class="checkbox__icon"></span>
-                    </span>
-                </td>
-                <td rowspan="2">СОЭ (скросость оседания эритроцитов)</td>
-                <td rowspan="2">1069</td>
-                <td>
-                    <span class="checkbox">
-                        <span class="checkbox__icon"></span>
-                    </span>
-                </td>
+                <td>{{ check }}</td>
+                <td>СОЭ (скросость оседания эритроцитов)</td>
+                <td>1069</td>
+
+                <td>{{ check }}</td>
                 <td>Аспартатаминотрансфераза (АСТ)</td>
                 <td>702</td>
+
+                <td>{{ check }}</td>
+                <td>Холестирин общий</td>
+                <td>719</td>
             </tr>
             <tr>
-                <td>
-                    <span class="checkbox">
-                        <span class="checkbox__icon"></span>
-                    </span>
-                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+                <td>{{ check }}</td>
                 <td>Билирубин общий</td>
                 <td>709</td>
+
+                <td>{{ check }}</td>
+                <td>Липопротеиды низкой плотности (Х-ЛПНП)</td>
+                <td>1098</td>
+            </tr>
+            <tr>
+                <td colspan="3"><strong>Биохимические тесты</strong></td>
+
+                <td>{{ check }}</td>
+                <td>Триглицериды</td>
+                <td>721</td>
+
+                <td>{{ check }}</td>
+                <td>Липопротеиды высокой плотности (Х-ЛПВП)</td>
+                <td>720</td>
+            </tr>
+            <tr>
+                <td>{{ check }}</td>
+                <td>Калий, натрий, хлор</td>
+                <td>1035</td>
+
+                <td>{{ check }}</td>
+                <td>Щелочная фосфатаза (ЩФ)</td>
+                <td>705</td>
+
+                <td>{{ check }}</td>
+                <td>Железо</td>
+                <td>727</td>
+            </tr>
+            <tr>
+                <td>{{ check }}</td>
+                <td>Кальций общий в крови</td>
+                <td>724</td>
+
+                <td>{{ check }}</td>
+                <td>Магний</td>
+                <td>726</td>
+
+                <td>{{ check }}</td>
+                <td>Медь</td>
+                <td>1797</td>
+            </tr>
+            <tr>
+                <td>{{ check }}</td>
+                <td>Фосфор в крови</td>
+                <td>725</td>
+
+                <td>{{ check }}</td>
+                <td>Тиреотропный гормон гипофиза (ТТГ)</td>
+                <td>301</td>
+
+                <td>{{ check }}</td>
+                <td>Тироксин общий (ТТ4)</td>
+                <td>303</td>
+            </tr>
+            <tr>
+                <td>{{ check }}</td>
+                <td>Трийодтиронин общий (TТ3)</td>
+                <td>302</td>
+
+                <td>{{ check }}</td>
+                <td>Кортизол</td>
+                <td>318</td>
+
+                <td>{{ check }}</td>
+                <td>Креатин-фосфо-киназа (КФК)</td>
+                <td>707</td>
+            </tr>
+            <tr>
+                <td>{{ check }}</td>
+                <td>Тестестерон</td>
+                <td>315</td>
+
+                <td>{{ check }}</td>
+                <td>Антиген HBsAG</td>
+                <td>201</td>
+
+                <td>{{ check }}</td>
+                <td>Антитела HCV (IgG, IgM)</td>
+                <td>204</td>
+            </tr>
+            <tr>
+                <td>{{ check }}</td>
+                <td>Определение антител/антигена ВИЧ</td>
+                <td>231</td>
+
+                <td>{{ check }}</td>
+                <td>Сифилис, RPR - экспресс-тест</td>
+                <td>201</td>
+
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
             </tbody>
         </table>
@@ -183,5 +262,6 @@
             </tbody>
         </table>
     </div>
-</body>
+    </body>
+{% endwith %}
 </html>

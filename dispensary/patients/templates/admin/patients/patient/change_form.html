@@ -172,6 +172,7 @@
                     <li><a href="{% url "admin:analyze" original.pk %}" target="_blank">{% trans "Направления" %}</a></li>
                     <li><a href="{% url "admin:flu" original.pk %}" target="_blank">{% trans "Флюорография" %}</a></li>
                     <li><a href="{% url "admin:card" original.pk %}" target="_blank">{% trans "Карточка" %}</a></li>
+                    <li><a href="{% url "admin:certificate" original.pk %}" target="_blank">{% trans "Справка" %}</a></li>
                     <li><a href="{% url "admin:label" original.pk %}" target="_blank">{% trans "Обложка" %}</a></li>
                     {% if has_absolute_url %}<li><a href="{{ absolute_url }}" class="grp-state-focus" target="_blank">{% trans "View on site" %}</a></li>{% endif%}
                 {% endblock %}

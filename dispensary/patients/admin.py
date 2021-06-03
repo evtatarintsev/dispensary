@@ -25,7 +25,8 @@ class PatientAdmin(SalmonellaMixin, admin.ModelAdmin):
             'sports_school', 'sport', 'coaches', 'rank', 'training_from_year', 'training_stage', 'team_member'
         )}),),
         ('Допуски', ({'fields': (
-            ('umo', 'umo_comment'), 'umo_limit', 'recommendations', ('emo', 'emo_comment'), 'emo_limit',
+            ('umo', 'umo_comment'), 'umo_number', 'umo_limit', 'recommendations',
+            ('emo', 'emo_comment'), 'emo_number', 'emo_limit',
         )}),),
     )
 
@@ -64,6 +65,7 @@ class PatientAdmin(SalmonellaMixin, admin.ModelAdmin):
             url(r'^card/(?P<pk>\d+)/$', self.admin_site.admin_view(self.print_card), name='card'),
             url(r'^flu/(?P<pk>\d+)/$', self.admin_site.admin_view(self.print_flu), name='flu'),
             url(r'^label/(?P<pk>\d+)/$', self.admin_site.admin_view(self.print_label), name='label'),
+            url(r'^certificate/(?P<pk>\d+)/$', self.admin_site.admin_view(self.print_certificate), name='certificate'),
         ] + super(PatientAdmin, self).get_urls()
         return urls
 
@@ -78,3 +80,6 @@ class PatientAdmin(SalmonellaMixin, admin.ModelAdmin):
 
     def print_label(self, request, pk):
         return render(request, 'admin/patients/patient/label.html', {'obj': Patient.objects.get(pk=pk)})
+
+    def print_certificate(self, request, pk):
+        return render(request, 'admin/patients/patient/certificate.html', {'obj': Patient.objects.get(pk=pk)})

@@ -1,0 +1,123 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="{% static "print/css/styles.css" %}">
+
+    <title>Справка - {{ obj.full_name }}</title>
+</head>
+<body class="certificate">
+<div class="text-center bold header">
+    <p>
+        КОГБУЗ "Кировский Клинико-диагностический центр"<br>
+        Отделение Спортивной Медицины <br>
+        тел. 8(8332) 37-00-17, 610002, г.Киров, ул.Красноармейская, 30Б <br>
+        e-mail: <a href="mailto:sport-kkdc@mail.ru">sport-kkdc@mail.ru</a> <br>
+    </p>
+</div>
+<div class="text-center bold small margin-bottom">
+    <p>
+        Медицинское заключение о допуске к участию в физкультурых и спортивных мероприятиях
+        (тренировочных мероприятиях и спортивных соревнованиях), мероприятиях по оценке выполнения
+        нормативов испытаний (тестов) Всероссийского физкультурно-спортивного комплекса
+        "Готов к труду и обороне" (ГТО).
+    </p>
+</div>
+<div class="text-center margin-bottom">
+    <p>
+        Реестровый номер заключения ____________
+    </p>
+</div>
+<table class="margin-bottom">
+    <tr>
+        <td class="data-field">ФИО</td>
+        <td class="data-value">{{ obj.full_name }}</td>
+    </tr>
+    <tr>
+        <td class="data-field">Дата рождения</td>
+        <td class="data-value">{{ obj.birthday|date:"d.m.Y" }}</td>
+    </tr>
+    <tr>
+        <td class="data-field">Реестровый номер</td>
+        <td class="data-value">{{ obj.pk }}</td>
+    </tr>
+    <tr>
+        <td class="data-field">Дата выдачи</td>
+        <td class="data-value">{% now "d.m.Y" %}</td>
+    </tr>
+    <tr>
+        <td class="data-field">Название выдавшего органа</td>
+        <td class="data-value">КОГБУЗ "Кировский Клинико-диагностический центр"</td>
+    </tr>
+    <tr>
+        <td class="data-field">Название мероприятия</td>
+        <td class="data-value"></td>
+    </tr>
+    <tr>
+        <td class="data-field">Вид спорта</td>
+        <td class="data-value">{{ obj.sport }}</td>
+    </tr>
+    <tr>
+        <td class="data-field">Спортивная дисциплина</td>
+        <td class="data-value"></td>
+    </tr>
+    <tr>
+        <td class="data-field">Этап спортивной подготовки</td>
+        <td class="data-value">{{ obj.training_stage|default:"" }}</td>
+    </tr>
+</table>
+
+<div class="text-center bold">
+    <p>
+        По результатам углубленного медицинского осмотра <br>
+        ДОПУЩЕН комиссией (лишнее вычеркнуть)
+    </p>
+</div>
+
+<div class="margin-bottom">
+    <ul>
+        <li>к тренировочным мероприятиям;</li>
+        <li>к участию в спортивных соревнованиях;</li>
+        <li>к участию в физкультурных мероприятиях;</li>
+        <li>к выполнению нормативов испытаний (тестов) комплекса ГТО.</li>
+    </ul>
+</div>
+
+<div class="margin-bottom">
+    Ограничения, в том числе физических нагрузок, сроки огрничений (Да/Нет)
+    <table>
+        <tr>
+            <td class="data-value"><p></p></td>
+        </tr>
+        <tr>
+            <td class="data-value"><p></p></td>
+        </tr>
+        <tr>
+            <td class="data-value"><p></p></td>
+        </tr>
+    </table>
+</div>
+<br>
+<div class="margin-bottom">
+    <table>
+        <tr>
+            <td class="data-field">Дата выдачи медицинского заключения</td>
+            <td class="data-value">{% now "d.m.Y" %}</td>
+        </tr>
+        <tr>
+            <td class="data-field">Медицинское заключение действительно до</td>
+            <td class="data-value"><p></p></td>
+        </tr>
+        <tr>
+            <td class="data-field">Ответственное лицо медицинской организации</td>
+            <td class="data-value"></td>
+        </tr>
+    </table>
+</div>
+<br>
+<br>
+</body>
+</html>

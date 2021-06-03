@@ -37,15 +37,15 @@
             </tr>
             <tr>
                 <td class="data-field">Адрес</td>
-                <td class="data-value">{{ obj.address }}</td>
+                <td class="data-value">{{ obj.address|default:"" }}</td>
             </tr>
             <tr>
                 <td class="data-field">Телефон</td>
-                <td class="data-value">{{ obj.phone_no }}</td>
+                <td class="data-value">{{ obj.phone_no|default:"" }}</td>
             </tr>
             <tr>
                 <td class="data-field">Организация</td>
-                <td class="data-value">{{ obj.sports_school }}</td>
+                <td class="data-value">{{ obj.sports_school|default:"" }}</td>
             </tr>
             <tr>
                 <td class="data-field">Отделение</td>
@@ -61,7 +61,7 @@
             </tr>
             <tr>
                 <td class="data-field">Этап подготовки</td>
-                <td class="data-value">{{ obj.training_stage }}</td>
+                <td class="data-value">{{ obj.training_stage|default:"" }}</td>
             </tr>
         </table>
 

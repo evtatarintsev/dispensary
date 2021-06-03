@@ -43,10 +43,12 @@ class Patient(models.Model):
                                           null=True, blank=True)
 
     umo = models.DateField('Дата УМО', null=True, blank=True)
+    umo_number = models.PositiveIntegerField('Номер УМО', default=0)
     umo_comment = models.CharField('Комментарий УМО', max_length=255, null=True, blank=True)
     umo_limit = models.TextField('Допуск УМО', max_length=255, null=True, blank=True)
 
     emo = models.DateField('Дата ЭМО', null=True, blank=True)
+    emo_number = models.PositiveIntegerField('Номер ЭМО', default=0)
     emo_comment = models.CharField('Комментарий ЭМО', max_length=255, null=True, blank=True)
     emo_limit = models.TextField('Допуск ЭМО', max_length=255, null=True, blank=True)
 

@@ -12,6 +12,10 @@
   margin: 0 1cm;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 .flu {
     width: 20cm;
     margin-top: 1cm;
@@ -93,4 +97,28 @@ table td {
     transform: rotate(180deg);
     top: -4px;
     left: 4px;
+}
+
+.small {
+    font-size: 11px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+.margin-bottom {
+    margin-bottom: 15px;
+}
+
+.certificate {
+    font-size: 12px;
+}
+
+.header {
+    font-size: 14px;
+}
+
+.certificate table td {
+    padding: 3px;
 }

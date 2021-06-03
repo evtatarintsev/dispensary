@@ -102,3 +102,4 @@ public_html/
 logs/
 touch-reload
 fabfile.py
+*.sql
