@@ -28,7 +28,7 @@
 </div>
 <div class="text-center margin-bottom">
     <p>
-        Реестровый номер заключения ____________
+        Реестровый номер заключения {{ obj.umo_number }}
     </p>
 </div>
 <table class="margin-bottom">
@@ -42,15 +42,15 @@
     </tr>
     <tr>
         <td class="data-field">Реестровый номер</td>
-        <td class="data-value">{{ obj.pk }}</td>
+        <td class="data-value">{{ obj.umo_number }}</td>
     </tr>
     <tr>
         <td class="data-field">Дата выдачи</td>
-        <td class="data-value">{% now "d.m.Y" %}</td>
+        <td class="data-value">{{ obj.umo|date:"d.m.Y"|default:"" }}</td>
     </tr>
     <tr>
         <td class="data-field">Название выдавшего органа</td>
-        <td class="data-value">КОГБУЗ "Кировский Клинико-диагностический центр"</td>
+        <td class="data-value">КОГБУЗ "Кировский Клинико-диагностический центр" Отделение спортивной медицины</td>
     </tr>
     <tr>
         <td class="data-field">Название мероприятия</td>
@@ -105,11 +105,11 @@
     <table>
         <tr>
             <td class="data-field">Дата выдачи медицинского заключения</td>
-            <td class="data-value">{% now "d.m.Y" %}</td>
+            <td class="data-value">{{ obj.umo|date:"d.m.Y"|default:"" }}</td>
         </tr>
         <tr>
             <td class="data-field">Медицинское заключение действительно до</td>
-            <td class="data-value"><p></p></td>
+            <td class="data-value">{{ obj.umo_limit|default:"" }}</td>
         </tr>
         <tr>
             <td class="data-field">Ответственное лицо медицинской организации</td>
